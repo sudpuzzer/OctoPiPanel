@@ -64,16 +64,16 @@ class OctoPiPanel():
         """
         self.done = False
         #self.color_bg = pygame.Color(41, 61, 70)
-	    self.color_bg = pygame.Color(255, 255, 255)
+        self.color_bg = pygame.Color(41, 61, 70)
 
         # Button settings
         self.buttonWidth = 160
         self.buttonHeight = 80
-	    self.buttonWidthBig = 120
-	    self.buttonHeightBig = 120
+        self.buttonWidthBig = 120
+        self.buttonHeightBig = 120
 
-	    # Jog Settings
-	    self.jogAmount = 1
+        # Jog Settings
+        self.jogAmount = 1
 
         # Status flags
         self.HotEndTemp = 0.0
@@ -117,38 +117,38 @@ class OctoPiPanel():
         self.bglight_on = True
 
         # Home X/Y/Z buttons
-        self.btnHomeXY        = pygbutton.PygButton((  760,   80, 120, 120), "Home X/Y") 
-        self.btnHomeZ         = pygbutton.PygButton((  760,  400, 120, 120), "Home Z")
-	    self.btnPark          = pygbutton.PygButton(( 920, 240, 120, 120), "Park")
+        self.btnHomeXY        = pygbutton.PygButton((  760,   80, 120, 120), "Home X/Y", (227, 120, 185)) 
+        self.btnHomeZ         = pygbutton.PygButton((  760,  400, 120, 120), "Home Z", (227, 120, 185))
+        self.btnUnload        = pygbutton.PygButton(( 920, 240, 120, 120), "Unload", (255, 255, 255))
 
 	#JogButtons 
-        self.btnZUp           = pygbutton.PygButton((1080,  80, 120, 120), "Z+")
-	    self.btnZDown         = pygbutton.PygButton((1080, 400, 120, 120), "Z-")
-	    self.btnXPlus         = pygbutton.PygButton((1080, 240, 160, 120), "X+")
-	    self.btnXMinus        = pygbutton.PygButton((720, 240, 160, 120), "X-")
-	    self.btnYPlus         = pygbutton.PygButton((920, 40, 120, 160), "Y+")
-	    self.btnYMinus        = pygbutton.PygButton((920, 400, 120, 160), "Y-")
-	    self.btnJog01         = pygbutton.PygButton((720, 600, 100, 100), "0.1")
-	    self.btnJog1          = pygbutton.PygButton((860, 600, 100, 100), "1")
-	    self.btnJog10	      = pygbutton.PygButton((1000, 600, 100, 100), "10")
-	    self.btnJog100        = pygbutton.PygButton((1140, 600, 100, 100), "100")
+        self.btnZUp           = pygbutton.PygButton((1080,  80, 120, 120), "Z+", (120, 227, 162))
+        self.btnZDown         = pygbutton.PygButton((1080, 400, 120, 120), "Z-", (120, 227, 162))
+        self.btnXPlus         = pygbutton.PygButton((1080, 240, 160, 120), "X+", (227, 215, 120))
+        self.btnXMinus        = pygbutton.PygButton((720, 240, 160, 120), "X-", (227, 215, 120))
+        self.btnYPlus         = pygbutton.PygButton((920, 40, 120, 160), "Y+", (120, 132, 227))
+        self.btnYMinus        = pygbutton.PygButton((920, 400, 120, 160), "Y-", (120, 132, 227))
+        self.btnJog01         = pygbutton.PygButton((720, 600, 100, 100), "0.1", (255, 255, 255))
+        self.btnJog1          = pygbutton.PygButton((860, 600, 100, 100), "1", (255, 255, 255))
+        self.btnJog10	      = pygbutton.PygButton((1000, 600, 100, 100), "10", (255, 255, 255))
+        self.btnJog100        = pygbutton.PygButton((1140, 600, 100, 100), "100", (255, 255, 255))
 
         # Heat buttons
-        self.btnHeatBed       = pygbutton.PygButton((  80,  240, 200, 80), "Heat bed") 
-        self.btnHeatHotEnd    = pygbutton.PygButton((  80,  120, 200, 80), "Heat hot end") 
+        self.btnHeatBed       = pygbutton.PygButton((  280,  240, 160, 80), "Bed On", (255, 255, 255)) 
+        self.btnHeatHotEnd    = pygbutton.PygButton((  80,  240, 160, 80), "Hot End On", (255, 255, 255)) 
 
         # Start, stop and pause buttons
-        self.btnStartPrint    = pygbutton.PygButton((80,   520, 360, 80), "Start print", (0, 200, 0))
-        self.btnAbortPrint    = pygbutton.PygButton((80,   520, 360, 80), "Abort print", (200, 0, 0)) 
-        self.btnPausePrint    = pygbutton.PygButton((480,  520, 200, 80), "Pause print") 
+        self.btnStartPrint    = pygbutton.PygButton((80,   520, 360, 80), "Start Print", (0, 200, 0))
+        self.btnAbortPrint    = pygbutton.PygButton((80,   520, 360, 80), "Abort Print", (200, 0, 0)) 
+        self.btnPausePrint    = pygbutton.PygButton((480,  520, 200, 80), "Pause Print") 
 
         # Shutdown and reboot buttons
         self.btnReboot        = pygbutton.PygButton((280,   640, 160, 80), "Reboot");
         self.btnShutdown      = pygbutton.PygButton((80,  640, 160, 80), "Shutdown");
 
 	#Extrusion Buttons
-	    self.btnExtrude       = pygbutton.PygButton((80, 400, 160, 80), "Extrude 5mm")
-	    self.btnRetract       = pygbutton.PygButton((280, 400, 160, 80), "Retract 5mm")
+        self.btnExtrude       = pygbutton.PygButton((80, 400, 160, 80), "Extrude 5", (255, 255, 255))
+        self.btnRetract       = pygbutton.PygButton((280, 400, 160, 80), "Retract 5", (255, 255, 255))
 
         # I couldnt seem to get at pin 252 for the backlight using the usual method, 
         # but this seems to work
@@ -235,34 +235,34 @@ class OctoPiPanel():
                     self._z_up()
 
                 if 'click' in self.btnZDown.handleEvent(event):
-				    self._z_down()
+                    self._z_down()
 
-		        if 'click' in self.btnXPlus.handleEvent(event):
-		            self._x_up()
+                if 'click' in self.btnXPlus.handleEvent(event):
+                    self._x_up()
 
-		        if 'click' in self.btnXMinus.handleEvent(event):
+                if 'click' in self.btnXMinus.handleEvent(event):
                     self._x_down()
 
-		        if 'click' in self.btnYPlus.handleEvent(event):
+                if 'click' in self.btnYPlus.handleEvent(event):
                     self._y_up()
 
-		        if 'click' in self.btnYMinus.handleEvent(event):
+                if 'click' in self.btnYMinus.handleEvent(event):
                     self._y_down()
 
-		        if 'click' in self.btnJog01.handleEvent(event):
+                if 'click' in self.btnJog01.handleEvent(event):
                     self.jogAmount = 0.1
 
-		        if 'click' in self.btnJog1.handleEvent(event):
+                if 'click' in self.btnJog1.handleEvent(event):
                     self.jogAmount = 1
 
-		        if 'click' in self.btnJog10.handleEvent(event):
+                if 'click' in self.btnJog10.handleEvent(event):
                     self.jogAmount = 10
 
-		        if 'click' in self.btnJog100.handleEvent(event):
+                if 'click' in self.btnJog100.handleEvent(event):
                     self.jogAmount = 100
 
-		        if 'click' in self.btnPark.handleEvent(event):
-                    self._park()
+                if 'click' in self.btnUnload.handleEvent(event):
+                    self._unload()
 
                 if 'click' in self.btnHeatBed.handleEvent(event):
                     self._heat_bed()
@@ -285,10 +285,10 @@ class OctoPiPanel():
                 if 'click' in self.btnShutdown.handleEvent(event):
                     self._shutdown()
 
-		        if 'click' in self.btnExtrude.handleEvent(event):
+                if 'click' in self.btnExtrude.handleEvent(event):
                     self._extrude()
 
-		        if 'click' in self.btnRetract.handleEvent(event):
+                if 'click' in self.btnRetract.handleEvent(event):
                     self._retract()
             
             # Did the user click on the screen?
@@ -376,7 +376,7 @@ class OctoPiPanel():
         self.btnXMinus.visible = not (self.Printing)
         self.btnYPlus.visible = not (self.Printing)
         self.btnYMinus.visible = not (self.Printing)
-        self.btnPark.visible = not (self.Printing)
+        self.btnUnload.visible = not (self.Printing)
         self.btnExtrude.visible = not (self.Printing)
         self.btnRetract.visible = not (self.Printing)
         self.btnJog01.visible = not (self.Printing)
@@ -401,14 +401,14 @@ class OctoPiPanel():
 
         # Set texts on heat buttons
         if self.HotHotEnd:
-            self.btnHeatHotEnd.caption = "Turn off hot end"
+            self.btnHeatHotEnd.caption = "Hot End Off"
         else:
-            self.btnHeatHotEnd.caption = "Heat hot end"
+            self.btnHeatHotEnd.caption = "Hot End On"
         
         if self.HotBed:
-            self.btnHeatBed.caption = "Turn off bed"
+            self.btnHeatBed.caption = "Bed Off"
         else:
-            self.btnHeatBed.caption = "Heat bed"
+            self.btnHeatBed.caption = "Bed On"
 
         return
                
@@ -425,7 +425,7 @@ class OctoPiPanel():
         self.btnXMinus.draw(self.screen)
         self.btnYPlus.draw(self.screen)
         self.btnYMinus.draw(self.screen)
-        self.btnPark.draw(self.screen)
+        self.btnUnload.draw(self.screen)
         self.btnJog01.draw(self.screen)
         self.btnJog1.draw(self.screen)
         self.btnJog10.draw(self.screen)
@@ -442,24 +442,24 @@ class OctoPiPanel():
 
         # Place temperatures texts
         lblHotEndTemp = self.fntText.render(u'Hot end: {0}\N{DEGREE SIGN}C ({1}\N{DEGREE SIGN}C)'.format(self.HotEndTemp, self.HotEndTempTarget), 1, (220, 0, 0))
-        self.screen.blit(lblHotEndTemp, (290, 140))
+        self.screen.blit(lblHotEndTemp, (80, 120))
         lblBedTemp = self.fntText.render(u'Bed: {0}\N{DEGREE SIGN}C ({1}\N{DEGREE SIGN}C)'.format(self.BedTemp, self.BedTempTarget), 1, (0, 0, 220))
-        self.screen.blit(lblBedTemp, (290, 260))
+        self.screen.blit(lblBedTemp, (80, 160))
 
         # Place time left and compeltetion texts
         if self.JobLoaded == False or self.PrintTimeLeft == None or self.Completion == None:
             self.Completion = 0
             self.PrintTimeLeft = 0;
 
-        lblPrintTimeLeft = self.fntText.render("Time left: {0}".format(datetime.timedelta(seconds = self.PrintTimeLeft)), 1, (0, 0, 0))
+        lblPrintTimeLeft = self.fntText.render("Time left: {0}".format(datetime.timedelta(seconds = self.PrintTimeLeft)), 1, (255, 255, 255))
         self.screen.blit(lblPrintTimeLeft, (80, 40))
 
-        lblCompletion = self.fntText.render("Completion: {0:.1f}%".format(self.Completion), 1, (0, 0, 0))
+        lblCompletion = self.fntText.render("Completion: {0:.1f}%".format(self.Completion), 1, (255, 255, 255))
         self.screen.blit(lblCompletion, (80, 80))
 
-        if self.Printing != True
-			lblJogAmount = self.fntText.render("Jog Amount: "format.(self.jogAmount), 1, (0, 0, 0))
-			self.screen.blit(lblJogAmount, (540, 630))
+        if self.Printing != True:
+            lblJogAmount = self.fntText.render("Jog Amount: {0}".format(self.jogAmount), 1, (255, 255, 255))
+            self.screen.blit(lblJogAmount, (500, 635))
    
         # update screen
         pygame.display.update()
@@ -489,26 +489,26 @@ class OctoPiPanel():
         return
 
     def _z_down(self):
-	    data = { "command": "jog", "x": 0, "y": 0, "z": - self.jogAmount }
+        data = { "command": "jog", "x": 0, "y": 0, "z": - self.jogAmount }
 
-	    # Send command
-	    self._sendAPICommand(self.apiurl_printhead, data)
+        # Send command
+        self._sendAPICommand(self.apiurl_printhead, data)
 
-	    return
+        return
 
     def _x_up(self):
-	    data = { "command": "jog", "x": self.jogAmount, "y": 0, "z": 0 }
+        data = { "command": "jog", "x": self.jogAmount, "y": 0, "z": 0 }
 
-	    self._sendAPICommand(self.apiurl_printhead, data)
+        self._sendAPICommand(self.apiurl_printhead, data)
 
-	    return
+        return
 
     def _x_down(self):
-	    data = { "command": "jog", "x": - self.jogAmount, "y": 0, "z": 0 }
+        data = { "command": "jog", "x": - self.jogAmount, "y": 0, "z": 0 }
 
-	    self._sendAPICommand(self.apiurl_printhead, data)
+        self._sendAPICommand(self.apiurl_printhead, data)
 
-	    return
+        return
 
     def _y_up(self):
         data = { "command": "jog", "x": 0, "y": self.jogAmount, "z": 0 }
@@ -524,8 +524,8 @@ class OctoPiPanel():
 
         return
 
-    def _park(self):
-        data = { "command": "jog", "x": 100, "y": 100, "z": 15 }
+    def _unload(self):
+        data = { "command": "jog", "x": 0, "y": 238, "z": 0 }
 
         self._sendAPICommand(self.apiurl_printhead, data)
 
